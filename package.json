@@ -12,7 +12,7 @@
         "lint:check": "prettier --check .",
         "lint:fix": "prettier --write .",
         "concurrently": "concurrently --names next,jest --hide next --kill-others --success command-jest 'next dev' 'jest --runInBand'",
-        "test": "npm run services:up && npm run wait-for-postgres && npm run concurrently",
+        "test": "npm run services:up && npm run concurrently",
         "test:watch": "jest --watchAll --runInBand",
         "migration:create": "node-pg-migrate -m infra/migrations create",
         "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
