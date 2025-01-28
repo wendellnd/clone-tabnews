@@ -1,10 +1,11 @@
+import orchestrator from "tests/orchestrator";
 import database from "infra/database";
 
-async function cleanDatabase() {
+beforeAll(async () => {
+    await orchestrator.waitForAllServices();
+    // clean database
     await database.query("DROP SCHEMA public CASCADE; CREATE SCHEMA public");
-}
-
-beforeAll(cleanDatabase);
+});
 
 test("GET to /api/v1/migrations should return 200", async () => {
     const response = await fetch("http://localhost:3000/api/v1/migrations");
