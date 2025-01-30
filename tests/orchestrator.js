@@ -1,4 +1,5 @@
 import retry from "async-retry";
+import fetch from "node-fetch";
 
 async function waitForAllServices() {
   await waitForWebServer();
